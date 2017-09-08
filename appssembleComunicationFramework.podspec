@@ -13,4 +13,10 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.source = { git: "https://github.com/appssemble/appssembleCommunicationFramework.git", tag: "v#{spec.version}", submodules: false }
   spec.source_files = "appssembleComunicationFramework/**/*.{h,m}"
+ 
+  spec.frameworks = 'GLKit', 'CoreFoundation', 'CFNetwork', 'CoreAudio', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'OpenGLES', 'AVFoundation', 'VideoToolbox', 'Security', 'QuartzCore', 'Foundation', 'MultipeerConnectivity' 
+  spec.libraries = 'c++', 'icucore'
+  spec.vendored_libraries = 'appssembleComunicationFramework/Libs/libWebRTC.a'
+  spec.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(inherited) $(PROJECT_DIR)/appssembleComunicationFramework/Libs/**" }
 end
+
