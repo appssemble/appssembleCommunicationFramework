@@ -12,7 +12,5 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '9.0'
   spec.requires_arc = true
   spec.source = { git: "https://github.com/appssemble/appssembleCommunicationFramework.git", tag: "v#{spec.version}", submodules: false }
-  spec.source_files = "**/*.{h,m}"
-
-  spec.xcconfig = { "OTHER_LDFLAGS" => "-lz" }
+  spec.source_files = "appssembleComunicationFramework/**/*.{h,m}"
 end
