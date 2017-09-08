@@ -91,6 +91,16 @@
 		7A4F947D1F62777C00595101 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94721F62764500595101 /* VideoToolbox.framework */; };
 		7A4F94801F627D9800595101 /* ARDAppClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F947E1F627D9800595101 /* ARDAppClient.h */; };
 		7A4F94811F627D9800595101 /* ARDAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F947F1F627D9800595101 /* ARDAppClient.m */; };
+		7A4F94821F6289C900595101 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F945E1F6275F300595101 /* AVFoundation.framework */; };
+		7A4F94831F628A0200595101 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94741F6276CC00595101 /* OpenGLES.framework */; };
+		7A4F94841F628A0B00595101 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F946C1F62762D00595101 /* GLKit.framework */; };
+		7A4F94851F628A1600595101 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94681F62761D00595101 /* CoreVideo.framework */; };
+		7A4F94861F628A1E00595101 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94661F62761400595101 /* CoreMedia.framework */; };
+		7A4F94871F628A3100595101 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94641F62760E00595101 /* CoreGraphics.framework */; };
+		7A4F94881F628A3800595101 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94621F62760400595101 /* CoreAudio.framework */; };
+		7A4F94891F628A4200595101 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94601F6275FC00595101 /* CFNetwork.framework */; };
+		7A4F948A1F628A5000595101 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94581F6275E200595101 /* CoreFoundation.framework */; };
+		7A4F948B1F628A5A00595101 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F945A1F6275E700595101 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +208,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4F948B1F628A5A00595101 /* UIKit.framework in Frameworks */,
+				7A4F948A1F628A5000595101 /* CoreFoundation.framework in Frameworks */,
+				7A4F94891F628A4200595101 /* CFNetwork.framework in Frameworks */,
+				7A4F94881F628A3800595101 /* CoreAudio.framework in Frameworks */,
+				7A4F94871F628A3100595101 /* CoreGraphics.framework in Frameworks */,
+				7A4F94861F628A1E00595101 /* CoreMedia.framework in Frameworks */,
+				7A4F94851F628A1600595101 /* CoreVideo.framework in Frameworks */,
+				7A4F94841F628A0B00595101 /* GLKit.framework in Frameworks */,
+				7A4F94831F628A0200595101 /* OpenGLES.framework in Frameworks */,
+				7A4F94821F6289C900595101 /* AVFoundation.framework in Frameworks */,
 				7A4F947D1F62777C00595101 /* VideoToolbox.framework in Frameworks */,
 				7A4F947C1F62775A00595101 /* libc++.tbd in Frameworks */,
 				7A4F94711F62763D00595101 /* Security.framework in Frameworks */,
@@ -701,6 +721,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = appssembleComunicationFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -723,6 +744,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = appssembleComunicationFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
