@@ -5,7 +5,19 @@ Pod::Spec.new do |spec|
   spec.description  = "Comunication framework based on multipeer connectivity and WebRTC, it provides real time communication and time synchronization. It uses libjingle, WebRTC, SocketRocket, ntp and the MultiplayerConnectivity Framework. It provides 2 types of communication, via RTC and by using muliplayer connectivity in the local network."
 
   spec.homepage = "https://github.com/appssemble/appssembleCommunicationFramework"
-  spec.license = { type: 'WTFPL', file: 'LICENSE' }
+  spec.license = { type: 'WTFPL', text: '     DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+                    Version 2, December 2004 
+
+ Copyright (C) 2017 <office@appssemble.com> 
+
+ Everyone is permitted to copy and distribute verbatim or modified 
+ copies of this license document, and changing it is allowed as long 
+ as the name is changed. 
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.' }
   spec.authors = { "Dragos Dobrean" => 'dragos@appssemble.com' }
   spec.social_media_url = "http://www.appssemble.com"
 
