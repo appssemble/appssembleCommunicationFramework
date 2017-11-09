@@ -70,10 +70,6 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 - (instancetype)initWithDelegate:(id<DataChannelDelegate>)delegae {
     if (self = [super init]) {
         self.delegate = delegae;
-        self.factory = [[RTCPeerConnectionFactory alloc] init];
-        self.messageQueue = [NSMutableArray array];
-        self.iceServers = [NSMutableArray arrayWithObjects:[self defaultSTUNServer], [self defaultTURNServer], nil];
-        
         self.ardServerAddress = @"https://apprtc.appspot.com";
         
         self.turnServerAddress = @"turn:numb.viagenie.ca";
@@ -81,6 +77,10 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
         
         self.turnServerUsername = @"office@appssemble.com";
         self.turnServerPassword = @"qwertyuio1";
+        
+        self.factory = [[RTCPeerConnectionFactory alloc] init];
+        self.messageQueue = [NSMutableArray array];
+        self.iceServers = [NSMutableArray arrayWithObjects:[self defaultSTUNServer], [self defaultTURNServer], nil];
     }
     
     return self;
@@ -120,7 +120,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
             [self.delegate dataChannel:self didChangeState:kDataChannelClientStateConnected];
         case kRTCDataChannelStateClosing:
             dataChannelState = @"Closing";
-            [self.delegate dataChannel:self didChangeState:kDataChannelClientStateDisconnected];
+            [self.delegate dataChannel:self didChangeState:kDataChannelClientStateClosing];
         case kRTCDataChannelStateConnecting:
             dataChannelState = @"Connecting";
             [self.delegate dataChannel:self didChangeState:kDataChannelClientStateConnected];
@@ -138,7 +138,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 - (void)channel:(RTCDataChannel*)channel didReceiveMessageWithBuffer:(RTCDataBuffer*)buffer {
     NSString *receivedData;
     NSString *dataType;
-
+    
     if(buffer.isBinary) {
         dataType = @"binary";
         NSLog(@"Binary data not implemented!");
@@ -164,7 +164,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 
 - (void)connectToRoomWithId:(NSString *)roomId {
     NSParameterAssert(roomId.length);
-    NSParameterAssert(self.state == kDataChannelClientStateDisconnected);
+    NSParameterAssert(self.state == kDataChannelClientStateDisconnected || self.state == kDataChannelClientStateClosing);
     self.state = kDataChannelClientStateConnecting;
     
     __weak DataChannel *weakSelf = self;
@@ -249,7 +249,6 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
     self.hasReceivedSdp = NO;
     self.messageQueue = [NSMutableArray array];
     self.peerConnection = nil;
-    self.state = kDataChannelClientStateDisconnected;
 }
 
 // Send a time synchronization message
@@ -315,7 +314,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
   iceConnectionChanged:(RTCICEConnectionState)newState {
     NSString *state;
-
+    
     switch(newState) {
         case RTCICEConnectionNew:
             state = @"new";
@@ -335,6 +334,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
             break;
         case RTCICEConnectionDisconnected:
             state = @"disconnected";
+            [self.delegate dataChannel:self didChangeState:kDataChannelClientStateDisconnected];
             break;
         case RTCICEConnectionFailed:
             state = @"failed";
@@ -423,7 +423,7 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
         
         // Set the local description and send a message
         [self.peerConnection setLocalDescriptionWithDelegate:self
-                                      sessionDescription:sdp];
+                                          sessionDescription:sdp];
         
         ARDSessionDescriptionMessage *message = [[ARDSessionDescriptionMessage alloc] initWithDescription:sdp];
         [self sendSignalingMessage:message];
@@ -502,7 +502,7 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
 }
 
 - (void)startSignalingIfReady {
-   // if (!self.isTurnComplete ||
+    // if (!self.isTurnComplete ||
     if (!self.isRegisteredWithRoomServer) {
         return;
     }
@@ -511,8 +511,8 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
     // Create peer connection.
     RTCMediaConstraints *constraints = [self defaultPeerConnectionConstraints];
     self.peerConnection = [self.factory peerConnectionWithICEServers:_iceServers
-                                                 constraints:constraints
-                                                    delegate:self];
+                                                         constraints:constraints
+                                                            delegate:self];
     
     [self startDataChannelFlow];
 }
@@ -633,7 +633,7 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
                           }
                           
                           ARDMessageResponse *response = [ARDMessageResponse responseFromJSONData:data];
-                         
+                          
                           NSError *error = nil;
                           switch (response.result) {
                               case kARDMessageResultTypeSuccess:
@@ -706,8 +706,8 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
     }
     // Open WebSocket connection.
     self.channel = [[ARDWebSocketChannel alloc] initWithURL:self.webSocketURL
-                                     restURL:self.webSocketRestURL
-                                    delegate:self];
+                                                    restURL:self.webSocketRestURL
+                                                   delegate:self];
     
     [self.channel registerForRoomId:self.roomId clientId:self.clientId];
 }
@@ -777,3 +777,4 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
 
 
 @end
+
