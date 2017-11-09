@@ -7,6 +7,8 @@
 //
 
 typedef NS_ENUM(NSInteger, DataChannelClientState) {
+    // The connection is closing
+    kDataChannelClientStateClosing,
     // Disconnected from servers.
     kDataChannelClientStateDisconnected,
     // Connecting to servers.
