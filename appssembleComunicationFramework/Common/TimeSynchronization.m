@@ -50,6 +50,8 @@ static NSString *const kTimeSyncAddress = @"time.apple.com";
     
     self.startTime = [self.netAssociation sendTimeQuery];
 
+    [self startCountDown];
+    
     [self sendRequestToPeer];
     
     return self.startTime.floating;
@@ -64,6 +66,8 @@ static NSString *const kTimeSyncAddress = @"time.apple.com";
     self.startTime = time;
     
     [self.netAssociation sendTimeQuery];
+    
+    [self startCountDown];
 }
 
 - (void)stopCountDown {
@@ -79,8 +83,7 @@ static NSString *const kTimeSyncAddress = @"time.apple.com";
 #pragma mark - Net Association delegate
 
 - (void)netAssociationHasFinishSync:(NetAssociation *)net {
-    [self stopTimer];
-    [self startTimer];
+    [self startCountDown];
 }
 
 #pragma mark - Timer callback
@@ -90,6 +93,11 @@ static NSString *const kTimeSyncAddress = @"time.apple.com";
 }
 
 #pragma mark - Private methods
+
+- (void)startCountDown {
+    [self stopTimer];
+    [self startTimer];
+}
 
 - (void)sendRequestToPeer {
     TimeSyncObject *obj = [TimeSyncObject new];
