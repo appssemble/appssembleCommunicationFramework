@@ -16,8 +16,8 @@
 @property (strong, nonatomic) id<DataChannelProtocol> dataChannel;
 
 @property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSDate *startTime;
 
-@property (assign, nonatomic) NSDate *startTime;
 @property (assign, nonatomic) int seconds;
 @property (strong, nonatomic) NSLock *syncLock;
 
@@ -46,21 +46,16 @@
     if (seconds < 5) {
         return 0;
     }
-
+    
     self.seconds = seconds;
     [self stopTimer];
     
-    if ([[NHNetworkClock sharedNetworkClock] isSynchronized]) {
-        self.startTime = [NSDate networkDate];
-    } else {
-        [self.syncLock lock];
-        [[NHNetworkClock sharedNetworkClock] synchronize];
-        
-        [self.syncLock lock];
-        self.startTime = [NSDate networkDate];
-        [self.syncLock unlock];
+    if (![[NHNetworkClock sharedNetworkClock] isSynchronized]) {
+        [self synchronizeTimeWithLock];
     }
-
+    
+    self.startTime = [NSDate networkDate];
+    
     [self startCountDown];
     
     [self sendRequestToPeer];
@@ -74,11 +69,7 @@
     self.startTime = [NSDate dateWithTimeIntervalSince1970:object.date];
     
     if (![[NHNetworkClock sharedNetworkClock] isSynchronized]) {
-        [self.syncLock lock];
-        [[NHNetworkClock sharedNetworkClock] synchronize];
-        
-        [self.syncLock lock];
-        [self.syncLock unlock];
+        [self synchronizeTimeWithLock];
     }
     
     [self startCountDown];
@@ -97,8 +88,6 @@
 #pragma mark - Net Association delegate
 
 - (void)timeSyncHasFinished {
-    NSLog(@"Finished");
-    
     [self.syncLock unlock];
 }
 
@@ -109,6 +98,14 @@
 }
 
 #pragma mark - Private methods
+
+- (void)synchronizeTimeWithLock {
+    [self.syncLock lock];
+    [[NHNetworkClock sharedNetworkClock] synchronize];
+    
+    [self.syncLock lock];
+    [self.syncLock unlock];
+}
 
 - (void)startCountDown {
     [self stopTimer];
@@ -133,13 +130,16 @@
 }
 
 - (void)startTimer {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    });
 }
 
 - (void)calculateSecondsRemaining {
-    NSDate *currentDate = [NSDate date];
+    NSDate *currentDate = [NSDate networkDate];
     
     double timeRemaining = [currentDate timeIntervalSinceDate:self.startTime];
+    timeRemaining = self.seconds - timeRemaining;
     
     if (timeRemaining < 0) {
         [self stopTimer];
@@ -151,5 +151,5 @@
     [self.delegate timeSynchronization:self timeRemaining:timeRemaining];
 }
 
-
 @end
+
