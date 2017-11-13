@@ -509,6 +509,7 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
     }
     self.state = kDataChannelClientStateConnecting;
     
+    
     // Create peer connection.
     RTCMediaConstraints *constraints = [self defaultPeerConnectionConstraints];
     self.peerConnection = [self.factory peerConnectionWithICEServers:_iceServers
