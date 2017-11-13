@@ -39,15 +39,6 @@
 		7A4F93F11F6272A600595101 /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F93F01F6272A600595101 /* SRWebSocket.h */; };
 		7A4F94011F62735300595101 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F93F61F62735300595101 /* GCDAsyncUdpSocket.h */; };
 		7A4F94021F62735300595101 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F93F71F62735300595101 /* GCDAsyncUdpSocket.m */; };
-		7A4F94031F62735300595101 /* ios-ntp.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F93F81F62735300595101 /* ios-ntp.h */; };
-		7A4F94041F62735300595101 /* NetAssociation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F93F91F62735300595101 /* NetAssociation.h */; };
-		7A4F94051F62735300595101 /* NetAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F93FA1F62735300595101 /* NetAssociation.m */; };
-		7A4F94061F62735300595101 /* NetworkClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F93FB1F62735300595101 /* NetworkClock.h */; };
-		7A4F94071F62735300595101 /* NetworkClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F93FC1F62735300595101 /* NetworkClock.m */; };
-		7A4F94081F62735300595101 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F93FD1F62735300595101 /* Notes */; };
-		7A4F94091F62735300595101 /* NSDate+NetworkClock.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F93FE1F62735300595101 /* NSDate+NetworkClock.h */; };
-		7A4F940A1F62735300595101 /* NSDate+NetworkClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F93FF1F62735300595101 /* NSDate+NetworkClock.m */; };
-		7A4F940B1F62735300595101 /* ntp-log.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F94001F62735300595101 /* ntp-log.h */; };
 		7A4F941A1F62736100595101 /* ARDMessageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F940E1F62736100595101 /* ARDMessageResponse.h */; };
 		7A4F941B1F62736100595101 /* ARDMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F940F1F62736100595101 /* ARDMessageResponse.m */; };
 		7A4F941C1F62736100595101 /* ARDRegisterResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4F94101F62736100595101 /* ARDRegisterResponse.h */; };
@@ -99,6 +90,9 @@
 		7A4F94891F628A4200595101 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94601F6275FC00595101 /* CFNetwork.framework */; };
 		7A4F948A1F628A5000595101 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F94581F6275E200595101 /* CoreFoundation.framework */; };
 		7A4F948B1F628A5A00595101 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4F945A1F6275E700595101 /* UIKit.framework */; };
+		7A9E83451FB989A1001C4C6C /* NSDate+NetworkClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E833D1FB989A0001C4C6C /* NSDate+NetworkClock.m */; };
+		7A9E83461FB989A1001C4C6C /* NHNetworkClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E83421FB989A0001C4C6C /* NHNetworkClock.m */; };
+		7A9E83471FB989A1001C4C6C /* NHNetAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9E83441FB989A1001C4C6C /* NHNetAssociation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,15 +130,6 @@
 		7A4F93F01F6272A600595101 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		7A4F93F61F62735300595101 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		7A4F93F71F62735300595101 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		7A4F93F81F62735300595101 /* ios-ntp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ios-ntp.h"; sourceTree = "<group>"; };
-		7A4F93F91F62735300595101 /* NetAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetAssociation.h; sourceTree = "<group>"; };
-		7A4F93FA1F62735300595101 /* NetAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetAssociation.m; sourceTree = "<group>"; };
-		7A4F93FB1F62735300595101 /* NetworkClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkClock.h; sourceTree = "<group>"; };
-		7A4F93FC1F62735300595101 /* NetworkClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkClock.m; sourceTree = "<group>"; };
-		7A4F93FD1F62735300595101 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
-		7A4F93FE1F62735300595101 /* NSDate+NetworkClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NetworkClock.h"; sourceTree = "<group>"; };
-		7A4F93FF1F62735300595101 /* NSDate+NetworkClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NetworkClock.m"; sourceTree = "<group>"; };
-		7A4F94001F62735300595101 /* ntp-log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ntp-log.h"; sourceTree = "<group>"; };
 		7A4F940E1F62736100595101 /* ARDMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDMessageResponse.h; sourceTree = "<group>"; };
 		7A4F940F1F62736100595101 /* ARDMessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDMessageResponse.m; sourceTree = "<group>"; };
 		7A4F94101F62736100595101 /* ARDRegisterResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDRegisterResponse.h; sourceTree = "<group>"; };
@@ -197,6 +182,14 @@
 		7A4F947B1F62775A00595101 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7A4F947E1F627D9800595101 /* ARDAppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDAppClient.h; sourceTree = "<group>"; };
 		7A4F947F1F627D9800595101 /* ARDAppClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDAppClient.m; sourceTree = "<group>"; };
+		7A9E833D1FB989A0001C4C6C /* NSDate+NetworkClock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NetworkClock.m"; sourceTree = "<group>"; };
+		7A9E833E1FB989A0001C4C6C /* NHNetAssociation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHNetAssociation.h; sourceTree = "<group>"; };
+		7A9E833F1FB989A0001C4C6C /* NHNetworkClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHNetworkClock.h; sourceTree = "<group>"; };
+		7A9E83401FB989A0001C4C6C /* NHNTLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHNTLog.h; sourceTree = "<group>"; };
+		7A9E83411FB989A0001C4C6C /* NSDate+NetworkClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+NetworkClock.h"; sourceTree = "<group>"; };
+		7A9E83421FB989A0001C4C6C /* NHNetworkClock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHNetworkClock.m; sourceTree = "<group>"; };
+		7A9E83431FB989A0001C4C6C /* NHNetworkTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHNetworkTime.h; sourceTree = "<group>"; };
+		7A9E83441FB989A1001C4C6C /* NHNetAssociation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHNetAssociation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,17 +337,16 @@
 		7A4F93F21F6272E600595101 /* NTP */ = {
 			isa = PBXGroup;
 			children = (
+				7A9E833E1FB989A0001C4C6C /* NHNetAssociation.h */,
+				7A9E83441FB989A1001C4C6C /* NHNetAssociation.m */,
+				7A9E833F1FB989A0001C4C6C /* NHNetworkClock.h */,
+				7A9E83421FB989A0001C4C6C /* NHNetworkClock.m */,
+				7A9E83431FB989A0001C4C6C /* NHNetworkTime.h */,
+				7A9E83401FB989A0001C4C6C /* NHNTLog.h */,
+				7A9E83411FB989A0001C4C6C /* NSDate+NetworkClock.h */,
+				7A9E833D1FB989A0001C4C6C /* NSDate+NetworkClock.m */,
 				7A4F93F61F62735300595101 /* GCDAsyncUdpSocket.h */,
 				7A4F93F71F62735300595101 /* GCDAsyncUdpSocket.m */,
-				7A4F93F81F62735300595101 /* ios-ntp.h */,
-				7A4F93F91F62735300595101 /* NetAssociation.h */,
-				7A4F93FA1F62735300595101 /* NetAssociation.m */,
-				7A4F93FB1F62735300595101 /* NetworkClock.h */,
-				7A4F93FC1F62735300595101 /* NetworkClock.m */,
-				7A4F93FD1F62735300595101 /* Notes */,
-				7A4F93FE1F62735300595101 /* NSDate+NetworkClock.h */,
-				7A4F93FF1F62735300595101 /* NSDate+NetworkClock.m */,
-				7A4F94001F62735300595101 /* ntp-log.h */,
 			);
 			path = NTP;
 			sourceTree = "<group>";
@@ -456,7 +448,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A4F940B1F62735300595101 /* ntp-log.h in Headers */,
 				7A4F944F1F62746300595101 /* DataChannelProtocol.h in Headers */,
 				7A4F944C1F62744900595101 /* OffDataChannel.h in Headers */,
 				7A4F94441F62743500595101 /* TimeSynchronization.h in Headers */,
@@ -475,7 +466,6 @@
 				7A4F93E11F62729200595101 /* RTCOpenGLVideoRenderer.h in Headers */,
 				7A4F93E41F62729200595101 /* RTCPeerConnectionDelegate.h in Headers */,
 				7A4F93DB1F62729200595101 /* RTCLogging.h in Headers */,
-				7A4F94061F62735300595101 /* NetworkClock.h in Headers */,
 				7A4F941E1F62736100595101 /* ARDSignalingMessage.h in Headers */,
 				7A4F94011F62735300595101 /* GCDAsyncUdpSocket.h in Headers */,
 				7A4F941C1F62736100595101 /* ARDRegisterResponse.h in Headers */,
@@ -493,8 +483,6 @@
 				7A4F93EC1F62729200595101 /* RTCVideoCapturer.h in Headers */,
 				7A4F94361F62737D00595101 /* SRWebSocket.h in Headers */,
 				7A4F93DD1F62729200595101 /* RTCMediaSource.h in Headers */,
-				7A4F94031F62735300595101 /* ios-ntp.h in Headers */,
-				7A4F94091F62735300595101 /* NSDate+NetworkClock.h in Headers */,
 				7A4F93A21F626FF100595101 /* appssembleCommunicationFramework.h in Headers */,
 				7A4F93E91F62729200595101 /* RTCStatsDelegate.h in Headers */,
 				7A4F93DA1F62729200595101 /* RTCICEServer.h in Headers */,
@@ -506,7 +494,6 @@
 				7A4F93ED1F62729200595101 /* RTCVideoRenderer.h in Headers */,
 				7A4F93D91F62729200595101 /* RTCICECandidate.h in Headers */,
 				7A4F93E51F62729200595101 /* RTCPeerConnectionFactory.h in Headers */,
-				7A4F94041F62735300595101 /* NetAssociation.h in Headers */,
 				7A4F93D81F62729200595101 /* RTCI420Frame.h in Headers */,
 				7A4F93E31F62729200595101 /* RTCPeerConnection.h in Headers */,
 			);
@@ -570,7 +557,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A4F94081F62735300595101 /* Notes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,21 +571,21 @@
 				7A4F941F1F62736100595101 /* ARDSignalingMessage.m in Sources */,
 				7A4F944D1F62744900595101 /* OffDataChannel.m in Sources */,
 				7A4F94491F62744100595101 /* DataChannel.m in Sources */,
-				7A4F940A1F62735300595101 /* NSDate+NetworkClock.m in Sources */,
 				7A4F942D1F62736E00595101 /* RTCICECandidate+JSON.m in Sources */,
 				7A4F942F1F62736E00595101 /* RTCICEServer+JSON.m in Sources */,
 				7A4F94231F62736100595101 /* ARDWebSocketChannel.m in Sources */,
+				7A9E83471FB989A1001C4C6C /* NHNetAssociation.m in Sources */,
 				7A4F94021F62735300595101 /* GCDAsyncUdpSocket.m in Sources */,
 				7A4F94211F62736100595101 /* ARDUtilities.m in Sources */,
-				7A4F94051F62735300595101 /* NetAssociation.m in Sources */,
 				7A4F94331F62736E00595101 /* RTCSessionDescription+JSON.m in Sources */,
 				7A4F94411F62742A00595101 /* NSDate+Extension.m in Sources */,
 				7A4F941D1F62736100595101 /* ARDRegisterResponse.m in Sources */,
 				7A4F941B1F62736100595101 /* ARDMessageResponse.m in Sources */,
+				7A9E83461FB989A1001C4C6C /* NHNetworkClock.m in Sources */,
 				7A4F94371F62737D00595101 /* SRWebSocket.m in Sources */,
+				7A9E83451FB989A1001C4C6C /* NSDate+NetworkClock.m in Sources */,
 				7A4F94311F62736E00595101 /* RTCMediaConstraints+JSON.m in Sources */,
 				7A4F943D1F62742300595101 /* TimeSyncObject.m in Sources */,
-				7A4F94071F62735300595101 /* NetworkClock.m in Sources */,
 				7A4F94451F62743500595101 /* TimeSynchronization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
