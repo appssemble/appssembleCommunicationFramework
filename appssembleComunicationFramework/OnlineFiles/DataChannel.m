@@ -123,7 +123,6 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
             [self.delegate dataChannel:self didChangeState:kDataChannelClientStateClosing];
         case kRTCDataChannelStateConnecting:
             dataChannelState = @"Connecting";
-            [self.delegate dataChannel:self didChangeState:kDataChannelClientStateConnected];
             
         default:
             break;
@@ -327,6 +326,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
             break;
         case RTCICEConnectionCompleted:
             state = @"completed";
+            [self.delegate dataChannel:self didChangeState:kDataChannelClientStateConnected];
             break;
         case RTCICEConnectionConnected:
             state = @"connected";
@@ -338,6 +338,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
             break;
         case RTCICEConnectionFailed:
             state = @"failed";
+            [self.delegate dataChannel:self didChangeState:kDataChannelClientStateDisconnected];
             break;
         case RTCICEConnectionMax:
             state = @"max";
@@ -506,7 +507,7 @@ didCreateSessionDescription:(RTCSessionDescription *)sdp
     if (!self.isRegisteredWithRoomServer) {
         return;
     }
-    self.state = kDataChannelClientStateConnected;
+    self.state = kDataChannelClientStateConnecting;
     
     // Create peer connection.
     RTCMediaConstraints *constraints = [self defaultPeerConnectionConstraints];
